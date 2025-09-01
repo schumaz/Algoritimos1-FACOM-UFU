@@ -1,15 +1,14 @@
 #include <stdio.h>
+#include <string.h>
 
 int main () {
-    int a;
-    scanf("%d", &a);
+    char a[12];
+    scanf("%s", a);
+    a[strcspn(a, "\n")] = '\0';
 
-    while (a > 0) {
-        int last_one = a % 10;
-        printf("%d", last_one);
-        a /= 10;
+    for (int i = strlen(a) - 1; i >= 0; i--) {
+        printf("%c", a[i]);
     }
-    
     printf("\n");
 
     return 0;
