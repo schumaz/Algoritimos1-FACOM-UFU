@@ -1,12 +1,15 @@
 #include <stdio.h>
 
+#define MAX_FARMS 1000001
+
+long long farms[MAX_FARMS];
+int visited[MAX_FARMS];
+
 int main () {
     int a;
     scanf("%d", &a);
 
-    long long farms[a];
     long long total_sheep = 0;
-    int visited[a];
 
     for (int i = 0; i < a; i++) {
         scanf("%lld", &farms[i]);
@@ -19,7 +22,6 @@ int main () {
     int i = 0;
 
     while (i >= 0 && i < a) {
-
         if (visited[i] == 0) {
             visited[i] = 1;
         }
@@ -44,7 +46,7 @@ int main () {
         }
     }
 
-    printf("%lld %lld\n", attacked_farms, total_sheep-stolen_sheep);
+    printf("%d %lld\n", attacked_farms, total_sheep - stolen_sheep);
 
     return 0;
 }
